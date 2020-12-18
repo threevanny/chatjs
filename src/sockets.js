@@ -4,7 +4,7 @@ module.exports = (io) => {
   let users = {};
 
   io.on("connection", async (socket) => {
-    console.log("new user connected");
+    console.log("New user connected.");
 
     let messages = await Chat.find({}).limit(4);
     socket.emit("load old msgs", messages);
@@ -36,10 +36,10 @@ module.exports = (io) => {
               nick: socket.nickname,
             });
           } else {
-            cb("Error! Please enter a active user");
+            cb("Error! Please enter a active user.");
           }
         } else {
-          cb("Erro Please enter your mesage");
+          cb("Erro Please enter your mesage.");
         }
       } else {
         let newMessage = new Chat({
